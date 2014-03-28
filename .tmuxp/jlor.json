@@ -1,0 +1,32 @@
+{
+  "windows": [
+    {
+      "panes": [
+        {
+          "shell_command": [
+            "python manage.py runserver 8001"
+          ]
+        },
+        "pwd",
+        "grunt foreman-watch-noweb"
+      ], 
+      "shell_command_before": [
+        "cd ~/Development/github/jlor",
+        "workon jlor",
+        "rvm use 2.1.1@jlor"
+      ], 
+      "layout": "main-vertical", 
+      "window_name": "dev window"
+    },
+    {
+      "panes": [
+        "vim"
+      ],
+      "shell_command_before": [
+        "cd ~/Development/github/jlor"
+      ],
+      "window_name": "vim window"
+    }
+  ],
+  "session_name": "jlor-3panes"
+}

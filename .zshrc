@@ -33,7 +33,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git)
-source /usr/local/rvm/scripts/rvm
+#source /usr/local/rvm/scripts/rvm
 source $ZSH/oh-my-zsh.sh
 
 # old profiles
@@ -41,6 +41,8 @@ source ~/.profile
 source ~/.bash_profile
 
 # Customize to your needs...
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/bin:/opt/X11/bin:/Users/timevans/.rvm/bin:/usr/local/rvm/bin
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/bin:/opt/X11/bin:/Users/timevans/.rvm/bin:/usr/local/rvm/bin:$PATH"
 
 set -o vi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

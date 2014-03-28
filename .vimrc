@@ -18,13 +18,14 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/neosnippet'
 Bundle 'nvie/vim-flake8'
 Bundle 'vim-scripts/django.vim'
 Bundle 'groenewege/vim-less'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle 'garbas/vim-snipmate'
+Bundle 'elzr/vim-json'
+"Bundle 'Shougo/neosnippet.vim'
 
 filetype plugin indent on     " required!
 
@@ -60,8 +61,8 @@ filetype plugin indent on     " required!
     " colorscheme molokai       " set colorscheme
     "
     " " Prettify JSON files
-    autocmd BufRead,BufNewFile *.json set filetype=json
-    autocmd Syntax json sou ~/.vim/syntax/json.vim
+    "autocmd BufRead,BufNewFile *.json set filetype=json
+    "autocmd Syntax json sou ~/.vim/syntax/json.vim
     "
     " " Prettify Vagrantfile
     autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
@@ -128,7 +129,7 @@ filetype plugin indent on     " required!
 
     " neocomplcache {
         imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-        smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+        "smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 
         " Enable omni completion. Not required if they are already set
         " elsewhere in .vimrc

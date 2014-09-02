@@ -4,16 +4,16 @@
       "panes": [
         {
           "shell_command": [
-            "python manage.py runserver 8001"
+            ""
           ]
         },
-        "pwd",
-        "gulp invoker-watch-noweb"
+        "elasticsearch/bin/elasticsearch",
+        "pwd"
       ], 
       "shell_command_before": [
-        "cd ~/Development/github/jlor",
-        "workon jlor",
-        "rvm use 2.1.1@jlor"
+        "cd ~/Development/github/indelek",
+        "workon indelek",
+        "rvm use 2.1.1@saumotions"
       ], 
       "layout": "main-vertical", 
       "window_name": "dev window"
@@ -23,10 +23,11 @@
         "vim"
       ],
       "shell_command_before": [
-        "cd ~/Development/github/jlor"
+        "cd ~/Development/github/indelek"
       ],
       "window_name": "vim window"
     }
   ],
-  "session_name": "jlor-3panes"
+  "session_name": "indelek-3panes"
 }
+

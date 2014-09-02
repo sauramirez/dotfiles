@@ -4,18 +4,17 @@
       "panes": [
         {
           "shell_command": [
-            "python manage.py runserver 8001"
+            "python manage.py runserver 8000"
           ]
         },
         "pwd",
-        "gulp invoker-watch-noweb"
-      ], 
+        "gulp watch"
+      ],
       "shell_command_before": [
-        "cd ~/Development/github/jlor",
-        "workon jlor",
-        "rvm use 2.1.1@jlor"
-      ], 
-      "layout": "main-vertical", 
+        "cd ~/Development/github/siti",
+        "workon live"
+      ],
+      "layout": "main-vertical",
       "window_name": "dev window"
     },
     {
@@ -23,10 +22,10 @@
         "vim"
       ],
       "shell_command_before": [
-        "cd ~/Development/github/jlor"
+        "cd ~/Development/github/siti"
       ],
       "window_name": "vim window"
     }
   ],
-  "session_name": "jlor-3panes"
+  "session_name": "siti-3panes"
 }

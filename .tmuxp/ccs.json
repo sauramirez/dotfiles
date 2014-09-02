@@ -4,16 +4,16 @@
       "panes": [
         {
           "shell_command": [
-            "python manage.py runserver 8001"
+            "fab reserve"
           ]
         },
         "pwd",
-        "gulp invoker-watch-noweb"
+        "grunt watch"
       ], 
       "shell_command_before": [
-        "cd ~/Development/github/jlor",
-        "workon jlor",
-        "rvm use 2.1.1@jlor"
+        "cd ~/Development/github/ccs",
+        "workon ccs",
+        "rvm use 2.1.1@saumotions"
       ], 
       "layout": "main-vertical", 
       "window_name": "dev window"
@@ -23,10 +23,11 @@
         "vim"
       ],
       "shell_command_before": [
-        "cd ~/Development/github/jlor"
+        "cd ~/Development/github/ccs"
       ],
       "window_name": "vim window"
     }
   ],
-  "session_name": "jlor-3panes"
+  "session_name": "ccs-3panes"
 }
+

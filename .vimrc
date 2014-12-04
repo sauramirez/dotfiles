@@ -12,7 +12,7 @@ Bundle 'myusuf3/numbers.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-pathogen'
 Bundle 'scrooloose/syntastic'
-Bundle 'mattn/zencoding-vim'
+Bundle 'mattn/emmet-vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
@@ -25,7 +25,11 @@ Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle 'garbas/vim-snipmate'
 Bundle 'elzr/vim-json'
-"Bundle 'Shougo/neosnippet.vim'
+Bundle 'wting/rust.vim'
+Bundle 'lepture/vim-jinja'
+Bundle 'Lokaltog/powerline'
+" Bundle 'wookiehangover/jshint.vim'
+" Bundle 'Shougo/neosnippet.vim'
 
 filetype plugin indent on     " required!
 
@@ -158,15 +162,17 @@ filetype plugin indent on     " required!
     " Numbers {
         nnoremap <C-l> :NumbersToggle<CR>
     " }
-    
+
     " vim flakes {
-        let g:flake8_ignore="E501,W293"
+        let g:flake8_ignore=""
         map <C-f> :call Flake8()
         "autocmd BufWritePost *.py call Flake8()
     " }
 
     " Syntastic {
-        let g:syntastic_python_flake8_args='--ignore=E501'
+        let g:syntastic_python_flake8_args=''
+        let g:syntastic_javascript_checkers = ['jshint']
+        " --ignore=E503
     " }
     "
     " Dash {

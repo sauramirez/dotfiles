@@ -1,52 +1,49 @@
-set nocompatible               " be iMproved
-filetype off                   " required!
+call plug#begin('~/.vim/plugged')
+syntax on
+filetype plugin indent on
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/vim-easy-align'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'myusuf3/numbers.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-pathogen'
+Plug 'tpope/vim-unimpaired'
+Plug 'scrooloose/syntastic'
+Plug 'mattn/emmet-vim'
+Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'Shougo/neocomplcache'
+Plug 'nvie/vim-flake8'
+Plug 'vim-scripts/django.vim'
+Plug 'groenewege/vim-less'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'elzr/vim-json'
+Plug 'wting/rust.vim'
+Plug 'lepture/vim-jinja'
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'Lokaltog/powerline'
+Plug 'altercation/vim-colors-solarized'
+" Add plugins to &runtimepath
+call plug#end()
 
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'myusuf3/numbers.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-pathogen'
-Bundle 'scrooloose/syntastic'
-Bundle 'mattn/emmet-vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'Shougo/neocomplcache'
-Bundle 'nvie/vim-flake8'
-Bundle 'vim-scripts/django.vim'
-Bundle 'groenewege/vim-less'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle 'garbas/vim-snipmate'
-Bundle 'elzr/vim-json'
-Bundle 'wting/rust.vim'
-Bundle 'lepture/vim-jinja'
-Bundle 'Lokaltog/powerline'
-" Bundle 'wookiehangover/jshint.vim'
-" Bundle 'Shougo/neosnippet.vim'
-
-filetype plugin indent on     " required!
-
-" Vim settigs {
-
+" Vim settings {
     syntax enable
     let mapleader = ","
     set bs=2
-    let g:solarized_termcolors=16
-    if has('gui_running')
-        set background=dark "light
-    else
-        set background=dark
-    endif
-    colorscheme solarized
+    "if has('gui_running')
+        "set background=light
+    "else
+        "set background=light
+    "endif
+    "colorscheme solarized
 
-    "set guifont=Source\ Code\ Pro:h12
+    "set guifont=Fira\ Mono:h12
+    set guifont=Source\ Code\ Pro:h12
     set scrolloff=3                 " Minimum lines to keep above and below cursor
     " highlight tabs and trailing spaces
     set list
@@ -74,7 +71,7 @@ filetype plugin indent on     " required!
     " " Highlight characters that go over 80 columns
     highlight OverLength ctermbg=red ctermfg=white guibg=#592929
     match OverLength /\%81v.\+/
- 
+
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " 04. Vim UI
     "
@@ -88,7 +85,7 @@ filetype plugin indent on     " required!
     set ruler                 " Always show info along bottom.
     set showmatch
     set statusline=%<%f\%h%m%r%=%-20.(line=%l\ \ col=%c%V\ \ totlin=%L%)\ \ \%h%m%r%=%-40(bytval=0x%B,%n%Y%)\%P
-   
+
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " 05. Text Formatting/Layout
     "
@@ -103,13 +100,55 @@ filetype plugin indent on     " required!
     set nowrap                " don't wrap text
 " }
 
+
 " Plugins settings {
+    " NerdTree {
+       map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+       map <leader>e :NERDTreeFind<CR>
+       nmap <leader>nt :NERDTreeFind<CR>
+
+       let NERDTreeShowBookmarks=1
+       let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+       let NERDTreeChDirMode=0
+       let NERDTreeQuitOnOpen=1
+       let NERDTreeMouseMode=2
+       let NERDTreeShowHidden=1
+       let NERDTreeKeepTreeInNewTab=1
+       let g:nerdtree_tabs_open_on_gui_startup=0
+    " }
+
+    " Numbers {
+        nnoremap <C-l> :NumbersToggle<CR>
+    " }
+
+    " vim flakes {
+        let g:flake8_ignore=""
+        map <C-f> :call Flake8()
+        "autocmd BufWritePost *.py call Flake8()
+    " }
+
+    " Syntastic {
+       set statusline+=%#warningmsg#
+       set statusline+=%{SyntasticStatuslineFlag()}
+       set statusline+=%*
+
+       let g:syntastic_always_populate_loc_list = 1
+       let g:syntastic_auto_loc_list = 1
+       let g:syntastic_check_on_open = 0
+       let g:syntastic_always_populate_loc_list = 1
+    "   let g:syntastic_check_on_wq = 0
+    "   let g:syntastic_python_flake8_args=''
+       let g:syntastic_javascript_checkers = ['jshint']
+        " --ignore=E503
+    " }
 
     " Ctrlp {
         let g:ctrlp_working_path_mode = 2
         set wildignore+=*.pyc
         nnoremap <silent> <D-t> :CtrlP<CR>
         nnoremap <silent> <D-r> :Ctr
+	nnoremap <silent> <Space>m :CtrlPMixed<CR>
+	nnoremap <silent> <Space>r :CtrlPMRU<CR>
 
         " let g:ctrlp_custom_ignore = 'indelek/media\|htmlcov\|media|indelek/static$'
         let g:ctrlp_user_command = {
@@ -140,56 +179,10 @@ filetype plugin indent on     " required!
         autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
         autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
         autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+        autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
         autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+        autocmd Filetype python setlocal ts=4 sts=4 sw=4
         autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
     " }
 
-    " NerdTree {
-        map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
-        map <leader>e :NERDTreeFind<CR>
-        nmap <leader>nt :NERDTreeFind<CR>
-
-        let NERDTreeShowBookmarks=1
-        let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
-        let NERDTreeChDirMode=0
-        let NERDTreeQuitOnOpen=1
-        let NERDTreeMouseMode=2
-        let NERDTreeShowHidden=1
-        let NERDTreeKeepTreeInNewTab=1
-        let g:nerdtree_tabs_open_on_gui_startup=0
-    " }
-
-    " Numbers {
-        nnoremap <C-l> :NumbersToggle<CR>
-    " }
-
-    " vim flakes {
-        let g:flake8_ignore=""
-        map <C-f> :call Flake8()
-        "autocmd BufWritePost *.py call Flake8()
-    " }
-
-    " Syntastic {
-        let g:syntastic_python_flake8_args=''
-        let g:syntastic_javascript_checkers = ['jshint']
-        " --ignore=E503
-    " }
-    "
-    " Dash {
-        " Search Dash for word under cursor
-        function! SearchDash()
-            let s:browser = "/usr/bin/open"
-            let s:wordUnderCursor = expand("<cword>")
-            let s:url = "dash://".s:wordUnderCursor
-            let s:cmd ="silent ! " . s:browser . " " . s:url
-            execute s:cmd
-            redraw!
-        endfunction
-        map <leader>d :call SearchDash()<CR>
-    " }
-    "
-    " PEP8 {
-        map <leader><leader>p :! autopep8 --in-place %<CR>
-    " }
-" }
-
+"}

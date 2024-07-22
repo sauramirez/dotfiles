@@ -1,6 +1,7 @@
 return {
-  { "stevearc/conform.nvim",
-    opts = function () 
+  {
+    "stevearc/conform.nvim",
+    opts = function()
       return {
         formatters_by_ft = {
           lua = { "stylua" },
@@ -21,20 +22,22 @@ return {
 
           swift = { "swiftformat" },
           -- Use a sub-list to run only the first available formatter
-          javascript = { { "prettierd", "eslint_d","prettier",  } },
+          javascript = { { "prettierd", "eslint_d", "prettier" } },
+
+          svelte = { { "prettierd", "prettier" } },
         },
         format_on_save = {
-        -- These options will be passed to conform.format()
-        timeout_ms = 800,
-        lsp_format = "fallback",
-      },
-      formatters = {
-        dart_format = {
-          inherit = true,
-          append_args = { '-l', '120' },
+          -- These options will be passed to conform.format()
+          timeout_ms = 800,
+          lsp_format = "fallback",
         },
-      },
-    }
-    end
-  }
+        formatters = {
+          dart_format = {
+            inherit = true,
+            append_args = { "-l", "120" },
+          },
+        },
+      }
+    end,
+  },
 }

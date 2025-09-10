@@ -1,6 +1,6 @@
 
 
-local lsp_zero = require("lsp-zero")
+--local lsp_zero = require("lsp-zero")
 --lsp_zero.setup({
 --tsserver = {
 --enable = true,
@@ -29,9 +29,9 @@ local lsp_zero = require("lsp-zero")
 --"rust-analyzer",
 --},
 
-lsp_zero.on_attach(function(client, bufnr)
-  lsp_zero.default_keymaps({ buffer = bufnr })
-end)
+--lsp_zero.on_attach(function(client, bufnr)
+  --lsp_zero.default_keymaps({ buffer = bufnr })
+--end)
 
 require('flutter-tools').setup({
   })
@@ -92,6 +92,11 @@ cmp.setup({
         -- Tab for navigating the completion menu
         ['<Tab>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
         ['<S-Tab>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+
+        -- show completion menu
+        ['<C-n>'] = cmp.mapping.complete({}),
+    -- show virtual text for completion
+        ['<C-h>'] = cmp.mapping.complete({}),
       }),
     snippet = {
       expand = function(args)

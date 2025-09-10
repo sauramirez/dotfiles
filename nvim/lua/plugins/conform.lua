@@ -22,9 +22,18 @@ return {
 
           swift = { "swiftformat" },
           -- Use a sub-list to run only the first available formatter
-          javascript = { { "prettierd", "eslint_d", "prettier" } },
+          --javascript = { { "prettierd", "eslint_d", "prettier",
+          --timeout_ms = 2000;
+          --stop_after_first = true } },
+          javascript = {
+            "prettierd",
+            "eslint_d",
+            "prettier",
+            timeout_ms = 2000,
+            stop_after_first = true,
+          },
 
-          svelte = { { "prettierd", "prettier" } },
+          svelte = { "prettierd", "prettier", stop_after_first = true },
         },
         format_on_save = {
           -- These options will be passed to conform.format()
